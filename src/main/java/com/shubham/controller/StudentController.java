@@ -1,6 +1,7 @@
 package com.shubham.controller;
 import com.sendgrid.SendGrid;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,9 +58,18 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart; 
+import javax.mail.internet.MimeMultipart;
+import org.springframework.web.servlet.mvc.SimpleFormController;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.util.Assert;
+import org.springframework.validation.BindException;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 @Controller
-public class StudentController {
+public class StudentController  extends SimpleFormController {
 	@Autowired
 	private StudentService studentService;
 
@@ -88,6 +98,9 @@ public class StudentController {
 		List<ListItems> items = ListItemsService.getAllListItems();
 		List<Blog> blogitems = blogService.getAllBlog();
 //		mav.addObject("items", items);
+		FTPUploadFileDemo ff = new FTPUploadFileDemo();
+			ff.imageupload(1);
+		
 		
 		mav.addObject("blogitems", blogitems);
 		mav.addObject("todolist", todolist);
@@ -235,12 +248,12 @@ public class StudentController {
 		ModelAndView mav = new ModelAndView("test2");
 		List<Location> Location = LocationService.getAllLocation();
 		mav.addObject("Location", Location);
-		try {
-			sendMail("shubham20.yeole@gmail.com", "Message test", "body test");
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			sendMail("shubham20.yeole@gmail.com", "Message test", "body test");
+//		} catch (MessagingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return mav;
 	}
 	
@@ -371,4 +384,19 @@ public class StudentController {
 	        throw new RuntimeException(e);
 	    }
 	}
+	@RequestMapping(value="initmethod", method = RequestMethod.GET)
+	public ModelAndView initmethod(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView("initview");
+		return mav;
+	}
+	@RequestMapping(value="uploadImage", method = RequestMethod.POST)
+	public ModelAndView uploadImage(
+			@RequestParam(required=false, value="file") File file,
+			HttpServletRequest request){
+		
+		ModelAndView mav = new ModelAndView("initview");
+		System.out.println("File: "+file+"\nName:");
+		return mav;
+	}
+
 }

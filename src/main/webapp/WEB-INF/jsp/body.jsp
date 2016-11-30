@@ -27,13 +27,7 @@
 
 </head>
 
-<script>
-setInterval(function() {
-	 $.get("https://shubhamjavaworld.herokuapp.com/", function(data, status){
-         alert("Data: " + data + "\nStatus: " + status);
-     });	 
-}, 300);
-</script></script>
+
 <body>
 	<div id="doc" class="yui-t7">
 		<div class="parallax" id="aboutmeparallax"><div class="animate"></div>Know more about me? See below...</div>

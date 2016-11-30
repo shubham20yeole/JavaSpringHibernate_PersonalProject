@@ -1,14 +1,22 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%><script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script><div class="container">
-<script src="<c:url value="/resources/JS/jquery.lettering.js" />"></script>
-<script src="<c:url value="/resources/JS/jquery.textillate.js" />"></script>
-<link href="<c:url value="/resources/CSS/animate.css" />" rel="stylesheet">
-<%@ include file="/WEB-INF/jsp/headerandfooter.jsp"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<html>
+<head>
+<title>Upload Multiple File Request Page</title>
+</head>
+<body>
+	<form method="POST" action="uploadMultipleFile" enctype="multipart/form-data">
+		File1 to upload: <input type="file" name="file">
+ 
+		Name1: <input type="text" name="name">
+ 
+ 
+		File2 to upload: <input type="file" name="file">
+ 
+		Name2: <input type="text" name="name">
+ 
 
-<div class="demo" data-in-effect="rollIn">
-    <p>Each of this letter will animate.</p>
-</div>
+		<input type="submit" value="Upload"> Press here to upload the file!
+	</form>
+</body>
+</html>
