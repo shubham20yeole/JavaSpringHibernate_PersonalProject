@@ -19,13 +19,13 @@ public class FTPUploadFileDemo {
     public void imageupload(int i) {
         String server = "ftp.byethost7.com";
         int port = 21;
-        String user = "b8_19205430";
-        String pass = "Shubham4194";
+        String user = "g";
+        String pass = "g";
 //      http://shubhamyeole.byethost8.com/public_html/shubham.png
 
         
-//      String user = "b7_19204278";
-//      String pass = "Shubham4194";
+//      String user = "g";
+//      String pass = "g";
 //      http://pace-c691-team3.byethost7.com/public_html/shubham.png
 
         FTPClient ftpClient = new FTPClient();
