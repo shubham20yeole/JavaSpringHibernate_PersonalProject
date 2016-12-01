@@ -351,8 +351,8 @@ public class StudentController  extends SimpleFormController {
 		return dateString;
 	}
 	private void sendMail(String to, String subject, String emailBody) throws MessagingException{
-	    final String username = "shubham20.yeole@gmail.com";
-	    final String password = "Shubham4194";
+	    final String username = "dd@gmail.com";
+	    final String password = "dd";
 
 	    Properties props = new Properties();
 	    props.put("mail.smtp.auth", "true");
